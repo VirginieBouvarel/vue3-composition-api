@@ -9,12 +9,8 @@ export default {
     name: String,
     price: Number,
   },
-  setup(props, { attrs, slots, emit }) {
-    console.log(props.name);
-    console.log(props.price);
-
+  setup(props, { emit }) {
     const addToCart = () => emit("addToCart", props.name);
-
     return { addToCart };
   }
 }
