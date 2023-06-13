@@ -9,7 +9,7 @@
 
 <script>
 import YummyMeal from './components/YummyMeal.vue';
-import { ref, reactive, watch } from 'vue';
+import { ref, reactive, watchEffect } from 'vue';
 
 export default {
   components: { YummyMeal},
@@ -27,9 +27,7 @@ export default {
     const placeOrder = () => alert("You're order has been placed!");
     const addItemToCart = (item) => cart.push(item);
 
-    const removeWatcher = watch(() => [...cart], (newValue, oldValue) => 
-      alert(newValue.join("\\n"))
-    );
+    const removeWatcher = watchEffect(() => alert(cart.join("\n")));
 
     return { name, meal, meals, placeOrder, addItemToCart, removeWatcher };
   },
