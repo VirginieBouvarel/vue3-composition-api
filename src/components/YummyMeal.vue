@@ -1,9 +1,12 @@
 <template>
-  <p>
-    <strong>{{ name }}</strong>
-    {{ pricePretty }}
-  </p>
-  <button @click="addToCart">Add to Cart</button>
+  <div class="flex">
+    <p>
+      <strong>{{ name }}</strong>
+      {{ pricePretty }}
+    </p>
+    <button @click="addToCart">Add to Cart</button>
+  </div>
+  
 </template>
 
 <script>
@@ -22,3 +25,11 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.flex {
+  display: flex;
+  justify-content: space-between;
+  margin: 4px 0;
+}
+</style>
