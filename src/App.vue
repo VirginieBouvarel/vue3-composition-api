@@ -14,7 +14,7 @@
 
 <script>
 import YummyMeal from './components/YummyMeal.vue';
-import { ref, reactive, watch, provide  } from 'vue';
+import { ref, reactive, watch, provide, onMounted  } from 'vue';
 
 export default {
   components: { YummyMeal},
@@ -38,6 +38,11 @@ export default {
     const removeWatcher = watch(() => [...cart], (newValue, oldValue) => 
       alert(newValue.join("\\n"))
     );
+
+    onMounted(() => {
+      console.log('onMounted', name.value);
+    });
+    console.log('setup', name.value);
 
     return { name, meal, meals, currencySymbol, placeOrder, addItemToCart, removeWatcher };
   },
