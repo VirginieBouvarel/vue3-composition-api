@@ -1,19 +1,16 @@
 <template>
   <span>{{ pricePretty }}</span>
 </template>
-<script>
+<script setup>
 import { computed, inject, ref } from "vue";
 
-export default {
-  props: {
-    price: Number,
-  },
-  setup(props) {
-    const currencySymbol = inject("currencySymbol", ref("$"));
-    const pricePretty = computed(
-      () => `${currencySymbol.value}${props.price.toFixed(2)}`
-    );
-    return { pricePretty };
-  },
-};
+const props = defineProps({
+  price: Number,
+});
+
+const currencySymbol = inject("currencySymbol", ref("$"));
+const pricePretty = computed(
+  () => `${currencySymbol.value}${props.price.toFixed(2)}`
+);
+
 </script>
